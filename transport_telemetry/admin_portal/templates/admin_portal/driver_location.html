@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ driver.name }}'s Live Location</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <style>
+        html, body { height: 100%; margin: 0; padding: 0; }
+        #map { height: 90vh; width: 100%; }
+        .container { padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ driver.name }}'s Live Location</h1>
+        <div id="map"></div>
+        <a href="{% url 'driver_list' %}" class="btn btn-primary mt-3">Back to Drivers List</a>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map centered at Dhule's location
+        var map = L.map('map').setView([20.9911, 74.7788], 13); // Latitude and Longitude for Dhule
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Add a marker for the driver's location (replace with actual coordinates)
+        var driverLocation = [20.9911, 74.7788]; // Replace with dynamic driver location if available
+        var marker = L.marker(driverLocation).addTo(map) // Marker for driver's location
+            .bindPopup('{{ driver.name }} is here')
+            .openPopup();
+
+        // Geofence center and radius (adjust to place it slightly away from the driver's location)
+        var geofenceOffset = 0.005; // Increased offset to ensure the driver is outside the geofence
+        var geofenceCenter = [driverLocation[0] + geofenceOffset, driverLocation[1] + geofenceOffset]; // Slightly offset position
+        var geofenceRadius = 500; // Radius in meters (adjust as necessary)
+
+        // Create a circular geofence
+        var geofenceCircle = L.circle(geofenceCenter, {
+            color: 'blue',
+            fillColor: '#30f',
+            fillOpacity: 0.5,
+            radius: geofenceRadius
+        }).addTo(map).bindPopup('Geofence Area');
+
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

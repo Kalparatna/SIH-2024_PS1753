@@ -1,0 +1,103 @@
+/* General body styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fdf3d3, #fce69c);
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* 3D Heading Styling */
+h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #f39c12;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Form container */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;  /* Set a max-width to prevent overflow */
+    margin-bottom: 20px;
+    box-sizing: border-box; /* Ensure padding and borders are included in the width */
+}
+
+/* Input field styling */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    padding-right: 10px;
+    margin: 10px 0;
+    border: 2px solid #f9d976;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #fff;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease-in-out;
+    box-sizing: border-box; /* Ensure inputs stay within the form */
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #f7c948;
+}
+
+/* Button styling */
+button {
+    display: block;
+    width: 100%; /* Button width should be full to prevent overflow */
+    padding: 12px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #f39c12;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #d98c10;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Link styling */
+a {
+    text-decoration: none;
+    color: #f39c12;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #d98c10;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 28px;
+    }
+    form {
+        width: 90%; /* Form takes up 90% of screen width on small screens */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+}

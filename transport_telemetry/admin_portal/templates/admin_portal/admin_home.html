@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <!-- Link to Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/admin_home.css' %}">
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Link to Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+                <div class="position-sticky pt-3">
+                    <h4 class="text-white px-3">Admin Dashboard</h4>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{% url 'route_list' %}">
+                                <i class="fas fa-route"></i> Manage Routes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{% url 'driver_list' %}">
+                                <i class="fas fa-users"></i> Manage Drivers
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{% url 'third_party_requests' %}">
+                                <i class="fas fa-truck"></i> Third-Party Requests
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{% url 'delay_reports' %}">
+                                <i class="fas fa-exclamation-triangle"></i> Delay Reports
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard Overview</h1>
+                
+                    <!-- Notification Icon on the Right -->
+                    <button class="btn btn-notification ms-auto">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span> <!-- Optional badge for notifications -->
+                    </button>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Manage Routes</h5>
+                                        <p class="card-text">Add, view, edit, and delete routes.</p>
+                                        <a href="{% url 'route_list' %}" class="btn btn-primary">Go to Routes</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Manage Drivers</h5>
+                                        <p class="card-text">View, add, and track drivers.</p>
+                                        <a href="{% url 'driver_list' %}" class="btn btn-primary">Go to Drivers</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Third-Party Requests</h5>
+                                        <p class="card-text">Approve and manage third-party logistics requests.</p>
+                                        <a href="{% url 'third_party_requests' %}" class="btn btn-primary">Go to Requests</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Truck SVG Image -->
+                    <div class="col-md-4">
+
+                        <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1" style="max-width: 100%; height: auto; margin: 20px 0;">
+                            <defs>
+                                <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
+                                    <stop id="stop1" stop-color="rgba(144, 238, 144, 1)" offset="0%"></stop> <!-- Light Green Start -->
+                                    <stop id="stop2" stop-color="rgba(34, 139, 34, 1)" offset="100%"></stop> <!-- Darker Green End -->
+                                </linearGradient>
+                                <mask id="mask1" mask-type="alpha">
+                                    <path fill="url(#sw-gradient)" d="M26.5,-29C34.3,-25.1,40.5,-16.7,40.3,-8.5C40.2,-0.3,33.7,7.7,27.6,13.7C21.5,19.7,15.8,23.8,9.4,26.5C2.9,29.2,-4.4,30.6,-11.5,29.1C-18.6,27.6,-25.6,23.2,-31.3,16.6C-37,9.9,-41.3,0.9,-41.2,-8.5C-41,-18,-36.4,-28,-28.8,-31.8C-21.2,-35.7,-10.6,-33.5,-0.6,-32.8C9.4,-32.1,18.8,-32.8,26.5,-29Z" width="100%" height="100%" transform="translate(50 50)" stroke-width="0" style="transition: all 0.3s ease 0s;" stroke="url(#sw-gradient)"></path>
+                                </mask>
+                            </defs>
+                            <g mask="url(#mask1)">
+                                <path fill="url(#sw-gradient)" d="M26.5,-29C34.3,-25.1,40.5,-16.7,40.3,-8.5C40.2,-0.3,33.7,7.7,27.6,13.7C21.5,19.7,15.8,23.8,9.4,26.5C2.9,29.2,-4.4,30.6,-11.5,29.1C-18.6,27.6,-25.6,23.2,-31.3,16.6C-37,9.9,-41.3,0.9,-41.2,-8.5C-41,-18,-36.4,-28,-28.8,-31.8C-21.2,-35.7,-10.6,-33.5,-0.6,-32.8C9.4,-32.1,18.8,-32.8,26.5,-29Z" width="100%" height="100%" transform="translate(50 50)" stroke-width="0" style="transition: all 0.3s ease 0s;" stroke="url(#sw-gradient)"></path>
+                                <image x="15%" y="20%" width="70%" height="50%" href="{% static 'images/img.png' %}"/>
+                            </g>
+                        </svg>
+
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Link to Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drivers List</title>
+    <link rel="stylesheet" href="{% static 'css/driver_list.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Available Drivers</h1>
+        <a href="{% url 'add_driver' %}" class="btn btn-add mb-3">Add New Driver</a>
+        
+        {% if messages %}
+            <div class="container">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Contact Number</th>
+                    <th>Is Available</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for driver in drivers %}
+                    <tr>
+                        <td>{{ driver.id }}</td>
+                        <td>{{ driver.name }}</td>
+                        <td>{{ driver.contact_number }}</td>
+                        <td>{{ driver.is_available|yesno:"Yes,No" }}</td>
+                        <td>
+                            <a href="{% url 'driver_location' driver.id %}" class="btn btn-info btn-sm">View Location</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="5">No drivers available.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

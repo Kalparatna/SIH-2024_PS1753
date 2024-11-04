@@ -1,0 +1,71 @@
+/* General Body Styling */
+body {
+    background-color: #f9f9e7; /* Light yellow background */
+    color: #333; /* Dark text color */
+    font-family: 'Arial', sans-serif; /* Clean sans-serif font */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container Styling */
+.container {
+    max-width: 800px; /* Maximum width for the container */
+    margin: auto; /* Center the container */
+    padding: 20px;
+    background-color: #ffffff; /* White background for the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Soft shadow */
+}
+
+/* Title Styling */
+.title {
+    text-align: center; /* Center align the title */
+    margin-bottom: 20px; /* Space below the title */
+    color: #d69a22; /* Gold color for the title */
+    font-size: 2.5rem; /* Larger font size for emphasis */
+}
+
+/* Table Styling */
+.request-table {
+    width: 100%; /* Full width for the table */
+    border-collapse: collapse; /* Collapse borders */
+}
+
+.request-table th, .request-table td {
+    border: 1px solid #ddd; /* Light gray border */
+    padding: 12px; /* Padding for table cells */
+    text-align: center; /* Center align text */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.request-table th {
+    background-color: #ffe57f; /* Light yellow background for headers */
+    color: #333; /* Dark text color for headers */
+    font-weight: bold; /* Bold font for headers */
+    text-transform: uppercase; /* Uppercase letters for headers */
+}
+
+
+/* Button Styling */
+.btn-approve {
+    display: inline-block; /* Make it block level for better spacing */
+    background-color: #ffcc00; /* Yellow color for the button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 12px; /* Padding for the button */
+    color: #333; /* Dark text color */
+    text-decoration: none; /* Remove underline from link */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.btn-approve:hover {
+    background-color: #ffb300; /* Darker yellow on hover */
+    transform: translateY(-1px); /* Slightly lift button on hover */
+}
+
+/* Center align empty message */
+.text-center {
+    text-align: center; /* Center align text */
+    color: #999; /* Gray color for empty message */
+    font-style: italic; /* Italicize the message */
+}

@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third Party Logistics Requests</title>
+    <link rel="stylesheet" href="{% static 'css/third_party_requests.css' %}">  <!-- Link to your custom CSS file -->
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="title">Third Party Logistics Requests</h1>
+        <table class="request-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Company</th>
+                    <th>Load (Tonnes)</th>
+                    <th>Route</th>  <!-- New column for Route -->
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in requests %}
+                    <tr>
+                        <td>{{ request.id }}</td>
+                        <td>{{ request.company_name }}</td>
+                        <td>{{ request.request_load }}</td>  <!-- Display the load requested -->
+                        <td>{{ request.route.route_name }}</td>  <!-- Display the route name -->
+                        <td>{{ request.is_approved|yesno:"Approved,Pending" }}</td>
+                        <td>
+                            <a href="{% url 'approve_3pl_request' request.id %}" class="btn-approve">Approve</a> <!-- Button styled -->
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center">No requests available.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

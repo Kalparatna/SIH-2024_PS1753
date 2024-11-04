@@ -1,0 +1,54 @@
+<!-- admin_portal/templates/admin_portal/add_driver.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Driver</title>
+    <link rel="stylesheet" href="{% static 'css/add_driver.css' %}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Add a New Driver</h1>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_name" class="form-label">Driver Name</label>
+                {{ form.name }}
+                {% if form.name.errors %}
+                    <div class="text-danger">{{ form.name.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                <label for="id_contact_number" class="form-label">Contact Number</label>
+                {{ form.contact_number }}
+                {% if form.contact_number.errors %}
+                    <div class="text-danger">{{ form.contact_number.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-check mb-3">
+                {{ form.is_available }}
+                <label for="id_is_available" class="form-check-label">Is Available</label>
+                {% if form.is_available.errors %}
+                    <div class="text-danger">{{ form.is_available.errors }}</div>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-success">Add Driver</button>
+            <a href="{% url 'driver_list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

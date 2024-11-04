@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delay Reports</title>
+    <link rel="stylesheet" href="{% static 'css/delay_reports.css' %}">  <!-- Add your CSS file -->
+</head>
+<body>
+    <h1>Delay Reports</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Driver</th>
+                <th>Route</th>
+                <th>Reason</th>
+                <th>Reported At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in reports %}
+                <tr>
+                    <td data-label="ID">{{ report.id }}</td>
+                    <td data-label="Driver">{{ report.driver.name }}</td>
+                    <td data-label="Route">{{ report.route.route_name }}</td>
+                    <td data-label="Reason">{{ report.reason }}</td>
+                    <td data-label="Reported At">{{ report.reported_at }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center">No delay reports available.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Canvas for Delay Report Chart -->
+    <h2>Delay Report Distribution</h2>
+    {% if chart_url %}
+        <img src="data:image/png;base64,{{ chart_url }}" alt="Delay Report Distribution Chart" />
+    {% else %}
+        <p class="text-center">No data available to display the chart.</p>
+    {% endif %}
+</body>
+</html>

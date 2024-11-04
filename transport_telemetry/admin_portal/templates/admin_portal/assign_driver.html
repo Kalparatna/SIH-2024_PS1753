@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Driver</title>
+    <link rel="stylesheet" href="{% static 'css/assigned_driver.css' %}">
+</head>
+<body>
+    <h1>Assign Driver</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="route">Select Route:</label>
+        <select name="route" id="route">
+            {% for route in routes %}
+                <option value="{{ route.id }}">{{ route.route_name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="driver">Select Driver:</label>
+        <select name="driver" id="driver">
+            {% for driver in drivers %}
+                <option value="{{ driver.id }}">{{ driver.name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Assign Driver</button>
+    </form>
+    <a href="{% url 'admin_home' %}">Back to Admin Home</a>
+</body>
+</html>

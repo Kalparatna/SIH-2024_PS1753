@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route List</title>
+    <link rel="stylesheet" href="{% static 'css/route_list.css' %}">  <!-- Link to your external CSS file -->
+</head>
+<body>
+    <h1>Route List</h1>
+    <a href="{% url 'add_route' %}" style="margin-left: 20px;">Add New Route</a> <!-- Added margin-left for spacing -->
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Assigned Driver</th>
+                <th>Checkpoints</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for route in routes %}
+                <tr>
+                    <td data-label="ID">{{ route.id }}</td>
+                    <td data-label="Name">{{ route.route_name }}</td>
+                    <td data-label="Origin">{{ route.origin }}</td>
+                    <td data-label="Destination">{{ route.destination }}</td>
+                    <td data-label="Assigned Driver">
+                        {% if route.assigned_driver %}
+                            {{ route.assigned_driver.name }}
+                        {% else %}
+                            Not Assigned
+                        {% endif %}
+                    </td>
+                    <td data-label="Checkpoints">
+                        <ul>
+                            {% for checkpoint in route.checkpoints.all %}
+                                <li>{{ checkpoint.name }} - {{ checkpoint.load_location }} ({{ checkpoint.load_tonnes }} tonnes)</li>
+                            {% empty %}
+                                <li>No checkpoints</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td data-label="Actions">
+                        <a href="{% url 'edit_route' route.id %}">Edit</a>
+                        <a href="{% url 'delete_route' route.id %}">Delete</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="7">No routes available.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Canvas for Route Chart -->
+    <h2>Route Distribution</h2>
+        {% if chart_url %}
+            <img src="{{ chart_url }}" alt="Route Distribution Chart" />
+        {% else %}
+            <p>No data available to display the chart.</p>
+        {% endif %}
+
+</body>
+</html>

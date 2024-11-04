@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Route</title>
+    <link rel="stylesheet" href="{% static 'css/add_route.css' %}">  <!-- Link to your CSS file -->
+    
+</head>
+<body>
+    <h1>Add New Route</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div id="checkpoints">
+            <h3>Checkpoints</h3>
+            <div class="checkpoint" id="checkpoint_0">
+                <label for="checkpoint_0_name">Checkpoint Name:</label>
+                <input type="text" name="checkpoint_0_name" required>
+                
+                <label for="checkpoint_0_load_location">Load Location:</label>
+                <input type="text" name="checkpoint_0_load_location" required>
+                
+                <label for="checkpoint_0_unload_location">Unload Location:</label>
+                <input type="text" name="checkpoint_0_unload_location" required>
+                
+                <label for="checkpoint_0_load_tonnes">Load in Tonnes:</label>
+                <input type="number" step="0.01" name="checkpoint_0_load_tonnes" required>
+            </div>
+        </div>
+
+        <input type="hidden" name="checkpoint_count" value="1">
+        <button type="button" onclick="addCheckpoint()">Add Another Checkpoint</button>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function addCheckpoint() {
+            const count = document.querySelectorAll('.checkpoint').length;
+            const checkpointDiv = document.createElement('div');
+            checkpointDiv.className = 'checkpoint';
+            checkpointDiv.id = `checkpoint_${count}`;
+            checkpointDiv.innerHTML = `
+                <label for="checkpoint_${count}_name">Checkpoint Name:</label>
+                <input type="text" name="checkpoint_${count}_name" required>
+                <label for="checkpoint_${count}_load_location">Load Location:</label>
+                <input type="text" name="checkpoint_${count}_load_location" required>
+                <label for="checkpoint_${count}_unload_location">Unload Location:</label>
+                <input type="text" name="checkpoint_${count}_unload_location" required>
+                <label for="checkpoint_${count}_load_tonnes">Load in Tonnes:</label>
+                <input type="number" step="0.01" name="checkpoint_${count}_load_tonnes" required>
+            `;
+            document.getElementById('checkpoints').appendChild(checkpointDiv);
+            document.querySelector('input[name="checkpoint_count"]').value = count + 1; // Update count
+        }
+    </script>
+</body>
+</html>

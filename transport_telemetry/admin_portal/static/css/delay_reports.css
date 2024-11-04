@@ -1,0 +1,96 @@
+/* General Body Styling */
+body {
+    background-color: #fff9e6; /* Lighter yellow background */
+    color: #333; /* Darker text for readability */
+    font-family: 'Arial', sans-serif; /* Clean sans-serif font */
+    margin: 20px;
+    padding: 0;
+}
+
+/* Heading Styles */
+h1 {
+    color: #e67e22; /* Orange color for the title */
+    text-align: center; /* Center align the title */
+    margin-bottom: 20px; /* Space below the title */
+    font-size: 2.5rem; /* Larger font size for emphasis */
+}
+
+h2 {
+    color: #333; /* Dark text color for subtitles */
+    margin-top: 40px; /* Space above the subtitle */
+    margin-bottom: 10px; /* Space below the subtitle */
+    text-align: center; /* Center align the subtitle */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    max-width: 800px; /* Set maximum width for the table */
+    border-collapse: collapse;
+    margin: 0 auto 20px; /* Center the table and add bottom margin */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Clip overflow */
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ccc; /* Light gray border */
+    text-align: left;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+th {
+    background-color: #f78f3b; /* Orange background for headers */
+    color: #fff; /* White text color for headers */
+    font-weight: bold; /* Bold font for headers */
+    text-transform: uppercase; /* Uppercase letters for headers */
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 215, 0, 0.3); /* Light gold hover effect */
+    transform: scale(1.01); /* Slightly grow row on hover */
+}
+
+/* Button Styles */
+a.button {
+    background-color: #e74c3c; /* Red background for buttons */
+    color: #fff; /* White text */
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none; /* No underline */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+a.button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+/* Link Styles */
+a {
+    text-decoration: none;
+    color: #007bff; /* Blue link color */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Chart Styling */
+img {
+    max-width: 100%;  /* Responsive */
+    height: auto;      /* Maintain aspect ratio */
+    display: block;    /* Centering */
+    margin: 0 auto;    /* Center the image */
+    border-radius: 8px; /* Rounded corners for the image */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for the image */
+}
+
+/* Center align empty message */
+.text-center {
+    text-align: center; /* Center align text */
+    color: #999; /* Gray color for empty message */
+    font-style: italic; /* Italicize the message */
+}

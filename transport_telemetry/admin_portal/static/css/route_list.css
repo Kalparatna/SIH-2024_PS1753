@@ -1,0 +1,143 @@
+/* General styling for the body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff9e6;  /* Lighter yellow background */
+    margin: 0;
+    padding: 20px;  /* Added padding to the body */
+    color: #333;
+}
+
+/* Container styling */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #f39c12;  /* Darker yellow color */
+}
+
+/* Button styling */
+a {
+    display: inline-block;
+    background-color: #f39c12;  /* Yellow background */
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #d98c10;  /* Darker yellow on hover */
+}
+
+/* Table Styling */
+table {
+    width: 90%;  /* Adjusted width of the table */
+    border-collapse: collapse;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+thead tr {
+    background-color: #f39c12;  /* Yellow header */
+    color: #fff;
+    text-align: left;
+}
+
+thead th {
+    padding: 12px;
+    font-size: 16px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fcf8e3;  /* Light yellow for even rows */
+}
+
+tbody td {
+    padding: 12px;
+    font-size: 14px;
+}
+
+/* Styling the Actions column */
+td[data-label="Actions"] {
+    text-align: center;
+}
+
+/* Make the action buttons inline and add some spacing */
+td[data-label="Actions"] a {
+    display: inline-block; /* Make them inline-block */
+    background-color: #e74c3c;  /* Red for delete/edit actions */
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin: 0 5px; /* Add some horizontal margin */
+}
+
+td[data-label="Actions"] a:hover {
+    background-color: #c0392b;  /* Darker red on hover */
+}
+
+/* Checkpoints list styling */
+ul {
+    padding-left: 20px;
+    margin: 0;  /* Remove margin to fit better */
+}
+
+ul li {
+    list-style: none;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Route Distribution Chart Styling */
+h2 {
+    text-align: center;
+    color: #f39c12;  /* Yellow color for chart title */
+    margin-top: 40px;
+}
+
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;  /* Make sure the image is responsive */
+    height: auto;  /* Maintain aspect ratio */
+    border-radius: 10px;
+}
+
+/* Responsive Table for Smaller Screens */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    tr {
+        margin-bottom: 15px;
+    }
+
+    td[data-label]:before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: inline-block;
+        width: 120px;
+        color: #f39c12;  /* Yellow color for labels */
+    }
+
+    td[data-label="Actions"] {
+        text-align: left;
+    }
+}
+
+/* Add margin to the "Add New Route" button */
+.add-route-btn {
+    margin-left: 20px; /* Move the button to the right */
+}

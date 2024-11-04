@@ -1,0 +1,120 @@
+/* General body styling */
+body {
+    background-color: #fff9e6;  /* Light yellow background */
+    color: #333;  /* Dark text for readability */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container styling */
+.container {
+    background-color: #fff;  /* White background for form container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+
+    margin: 50px auto;  /* Added margin-top for spacing */
+    margin-top: 100px; 
+}
+
+/* Heading styling */
+h1 {
+    color: #d35400; /* Burnt orange to contrast with the yellow */
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form label styling */
+.form-label {
+    color: #d35400;  /* Burnt orange label text */
+    font-weight: bold;
+}
+
+/* Form input styling */
+input[type="text"], input[type="tel"], input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin: 3px auto;  /* Added margin-top for spacing */
+    margin-top: 5px; 
+}
+
+/* Success and error message styling */
+.text-danger {
+    color: #e74c3c; /* Red for error messages */
+}
+
+.alert-success {
+    background-color: #e9f7e9; /* Light green for success alerts */
+    color: #27ae60;
+}
+
+.alert-danger {
+    background-color: #fbeee6; /* Light red for error alerts */
+    color: #e74c3c;
+}
+
+/* Button styling */
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 10px;
+    cursor: pointer;
+    margin: 5px auto;  /* Added margin-top for spacing */
+    margin-top: 20px; 
+}
+
+.btn-success {
+    background-color: #27ae60; /* Green for success */
+    border: none;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #f39c12; /* Lighter orange for cancel */
+    border: none;
+    color: white;
+}
+
+.btn-success:hover, .btn-secondary:hover {
+    opacity: 0.9;
+}
+
+/* Form validation errors */
+input.is-invalid {
+    border-color: #e74c3c;
+}
+
+input.is-valid {
+    border-color: #27ae60;
+}
+
+/* Responsive form layout */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

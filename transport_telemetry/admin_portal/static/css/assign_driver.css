@@ -1,0 +1,112 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Form Container */
+form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Heading */
+h1 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-size: 16px;
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+/* Select Dropdowns */
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ecf0f1;
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+select:hover {
+    background-color: #e0e6e6;
+}
+
+select:focus {
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.7);
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(52, 152, 219, 0.4), 0 10px 15px rgba(52, 152, 219, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+    box-shadow: 0 8px 15px rgba(41, 128, 185, 0.4), 0 15px 20px rgba(41, 128, 185, 0.2);
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #1a5276;
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px);
+}
+
+/* Back to Admin Home Link */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2980b9;
+}
+
+/* Form Spacing and Layout */
+form select, form button, form label {
+    margin-top: 10px;
+}
